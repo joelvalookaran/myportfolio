@@ -1,23 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import Drawer from './components/Drawer';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ display: 'flex', minHeight: '100vh', background: '#0e1627' }}>
+      <Drawer />
+      <main style={{ flex: 1, padding: '24px', color: '#e6f0ff' }}>
+        <h2 style={{ marginTop: 0 }}>Welcome</h2>
+        <p>Replace this area with your page content.</p>
+      </main>
     </div>
   );
 }

@@ -83,8 +83,16 @@ export default function Drawer() {
           <Box sx={{ position: 'relative' }}>
             <Avatar
               alt="Profile"
-              src="/logo192.png"
-              sx={{ width: 112, height: 112, border: '6px solid #1b2433' }}
+              src={`${process.env.PUBLIC_URL}/profile.jpg`}
+              sx={{
+                width: 112,
+                height: 112,
+                border: '6px solid #1b2433',
+                '& .MuiAvatar-img': {
+                  objectFit: 'cover',
+                  objectPosition: '50% 35%',
+                },
+              }}
             />
           </Box>
           <Typography variant="h6" sx={{ fontWeight: 800, color: '#e6f0ff', textAlign: 'center' }}>

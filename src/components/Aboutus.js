@@ -42,7 +42,7 @@ export default function Aboutus() {
                   <InfoRow label="Age" value="21" />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <InfoRow label="Phone" value="+91 9880219154" />
+                  <InfoRow label="Phone" value="+91 8050025732" />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <InfoRow label="Degree" value="  DIPLOMA IN CSE" />

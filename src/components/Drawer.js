@@ -36,10 +36,11 @@ function SocialButton({ label }) {
   );
 }
 
-function NavItem({ active, icon, label }) {
+function NavItem({ active, icon, label, onClick }) {
   return (
     <ListItemButton
       selected={active}
+      onClick={onClick}
       sx={{
         px: 2,
         borderRadius: 1,
@@ -63,7 +64,16 @@ function NavItem({ active, icon, label }) {
   );
 }
 
-export default function Drawer() {
+export default function Drawer({ onPageChange, currentPage }) {
+  const navItems = [
+    { id: 'about', icon: '👤', label: 'About' },
+    { id: 'skills', icon: '🛠️', label: 'Skills' },
+    { id: 'resume', icon: '📄', label: 'Resume' },
+    { id: 'portfolio', icon: '📚', label: 'Portfolio' },
+    { id: 'services', icon: '🔧', label: 'Services' },
+    { id: 'contact', icon: '✉️', label: 'Contact' },
+  ];
+
   return (
     <MuiDrawer
       variant="permanent"
@@ -96,7 +106,7 @@ export default function Drawer() {
             />
           </Box>
           <Typography variant="h6" sx={{ fontWeight: 800, color: '#e6f0ff', textAlign: 'center' }}>
-            Joel
+            Kishan Nayak
           </Typography>
 
           <Stack direction="row" spacing={1.5} sx={{ pt: 1 }}>
@@ -110,12 +120,15 @@ export default function Drawer() {
 
         <Box sx={{ px: 2.5 }}>
           <List dense disablePadding>
-            <NavItem active icon="🏠" label="Home" />
-            <NavItem icon="👤" label="About" />
-            <NavItem icon="📄" label="Resume" />
-            <NavItem icon="📚" label="Portfolio" />
-            <NavItem icon="🛠️" label="Services" />
-            <NavItem icon="✉️" label="Contact" />
+            {navItems.map((item) => (
+              <NavItem
+                key={item.id}
+                active={currentPage === item.id}
+                icon={item.icon}
+                label={item.label}
+                onClick={() => onPageChange(item.id)}
+              />
+            ))}
           </List>
         </Box>
 

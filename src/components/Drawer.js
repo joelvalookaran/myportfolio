@@ -106,7 +106,7 @@ export default function Drawer({ onPageChange, currentPage }) {
             />
           </Box>
           <Typography variant="h6" sx={{ fontWeight: 800, color: '#e6f0ff', textAlign: 'center' }}>
-            Kishan Nayak
+            Joel
           </Typography>
 
           <Stack direction="row" spacing={1.5} sx={{ pt: 1 }}>

@@ -118,7 +118,7 @@ export default function Drawer({ onPageChange, currentPage }) {
             />
           </Box>
           <Typography variant="h6" sx={{ fontWeight: 800, color: '#e6f0ff', textAlign: 'center' }}>
-           JOEL
+            Joel
           </Typography>
 
           <Stack direction="row" spacing={1.5} sx={{ pt: 1 }}>
@@ -158,7 +158,7 @@ export default function Drawer({ onPageChange, currentPage }) {
           <Typography variant="caption" sx={{ color: '#9fb1c1' }}>
             Designed by{' '}
             <MuiLink href="#" underline="hover" sx={{ color: '#7fb1ff', fontWeight: 600 }}>
-             Joel Valookaran
+              Joel Valookaran
             </MuiLink>
           </Typography>
         </Box>

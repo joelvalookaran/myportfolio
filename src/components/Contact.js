@@ -38,6 +38,22 @@ const Contact = () => {
     }
   ];
 
+  const mapsQuery = encodeURIComponent('Thotathady, India');
+  const mapsLink = `https://www.google.com/maps?q=${mapsQuery}`;
+  const mapsEmbed = `${mapsLink}&output=embed`;
+  const emailAddress = 'joelvalookaran@gmail.com';
+  const emailSubject = 'Hello';
+  const emailBody = 'hii joel';
+  const mailtoLink = `mailto:${emailAddress}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const telNumber = '+919880219154';
+    const telUrl = `tel:${telNumber}`;
+    // Attempt to open the dialer on supported devices
+    window.location.href = telUrl;
+  };
+
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
       <Box sx={{ textAlign: 'center', mb: 6 }}>
@@ -54,18 +70,63 @@ const Contact = () => {
         <Grid item xs={12} md={4}>
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
             {contactInfo.map((info, index) => (
-              <Card key={index} elevation={3} sx={{ p: 3 }}>
+              <Card
+                key={index}
+                elevation={3}
+                sx={{ p: 3, ...((info.title === 'Location' || info.title === 'Email' || info.title === 'Phone') && { cursor: 'pointer' }) }}
+                {...(info.title === 'Location'
+                  ? { component: 'a', href: mapsLink, target: '_blank', rel: 'noopener noreferrer' }
+                  : info.title === 'Email'
+                  ? {
+                      component: 'a',
+                      href: mailtoLink,
+                      onClick: (e) => {
+                        e.preventDefault();
+                        window.location.href = mailtoLink;
+                      },
+                      role: 'link',
+                      tabIndex: 0
+                    }
+                  : info.title === 'Phone'
+                  ? { component: 'a', href: `tel:${info.detail.replace(/\s+/g, '')}` }
+                  : {})}
+              >
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                   <Box sx={{ color: info.color }}>
                     {info.icon}
                   </Box>
-                  <Box>
+                  <Box sx={{ flex: 1 }}>
                     <Typography variant="h6" component="h3" fontWeight="bold" gutterBottom>
                       {info.title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                      {info.detail}
+                      {info.title === 'Phone' ? (
+                        <a
+                          href={`tel:${info.detail.replace(/\s+/g, '')}`}
+                          style={{ color: 'inherit', textDecoration: 'none' }}
+                        >
+                          {info.detail}
+                        </a>
+                      ) : (
+                        info.detail
+                      )}
                     </Typography>
+                    {info.title === 'Phone' && (
+                      <Box sx={{ mt: 1.5 }}>
+                        <Button
+                          variant="contained"
+                          color="primary"
+                          size="small"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            const tel = `tel:${info.detail.replace(/\s+/g, '')}`;
+                            window.location.href = tel;
+                          }}
+                        >
+                          Call now
+                        </Button>
+                      </Box>
+                    )}
                   </Box>
                 </Box>
               </Card>
@@ -79,12 +140,13 @@ const Contact = () => {
             <Typography variant="h5" component="h2" gutterBottom fontWeight="bold" color="primary">
               Send Message
             </Typography>
-            <Box component="form" sx={{ mt: 3 }}>
+            <Box component="form" sx={{ mt: 3 }} onSubmit={handleSubmit}>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6}>
                   <TextField
                     fullWidth
                     label="First Name"
+                    name="firstName"
                     variant="outlined"
                     required
                   />
@@ -93,6 +155,7 @@ const Contact = () => {
                   <TextField
                     fullWidth
                     label="Last Name"
+                    name="lastName"
                     variant="outlined"
                     required
                   />
@@ -102,6 +165,7 @@ const Contact = () => {
                     fullWidth
                     label="Email"
                     type="email"
+                    name="fromEmail"
                     variant="outlined"
                     required
                   />
@@ -110,6 +174,7 @@ const Contact = () => {
                   <TextField
                     fullWidth
                     label="Subject"
+                    name="subject"
                     variant="outlined"
                     required
                   />
@@ -120,6 +185,7 @@ const Contact = () => {
                     label="Message"
                     multiline
                     rows={4}
+                    name="message"
                     variant="outlined"
                     required
                   />
@@ -136,6 +202,38 @@ const Contact = () => {
                   </Button>
                 </Grid>
               </Grid>
+            </Box>
+          </Paper>
+        </Grid>
+
+        {/* Location & Map */}
+        <Grid item xs={12}>
+          <Paper elevation={3} sx={{ p: 0, overflow: 'hidden', borderRadius: 2 }}>
+            <Box sx={{ p: 2, display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 2 }}>
+              <Typography variant="h6" component="h3" fontWeight="bold" color="primary">
+                Location
+              </Typography>
+              <Button
+                component="a"
+                href={mapsLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="outlined"
+                size="small"
+              >
+                Open in Google Maps
+              </Button>
+            </Box>
+            <Box sx={{ position: 'relative', width: '100%', height: { xs: 280, sm: 360, md: 420 } }}>
+              <iframe
+                title="map"
+                src={mapsEmbed}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </Box>
           </Paper>
         </Grid>

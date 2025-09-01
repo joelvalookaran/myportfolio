@@ -42,7 +42,7 @@ export default function Aboutus() {
                   <InfoRow label="Age" value="21" />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <InfoRow label="Phone" value="+91 8050025732" />
+                  <InfoRow label="Phone" value="+91 9880219154" />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <InfoRow label="Degree" value="  DIPLOMA IN CSE" />
@@ -60,7 +60,7 @@ export default function Aboutus() {
 
         <Grid item xs={12} md={6}>
           <Box sx={{ display: 'flex', justifyContent: 'center' }}>
-            <Avatar src="/logo512.png" alt="About Illustration" sx={{ width: 260, height: 260 }} />
+            <Avatar src="/about-bg.jpg" alt="About Illustration" sx={{ width: 260, height: 260 }} />
           </Box>
         </Grid>
       </Grid>

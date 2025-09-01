@@ -7,6 +7,7 @@ import Resume from './components/Resume';
 import Portfolio from './components/Portfolio';
 import Services from './components/Services';
 import Contact from './components/Contact';
+import Gallery from './components/Gallery';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('about');
@@ -23,6 +24,8 @@ function App() {
         return <Aboutus />;
       case 'skills':
         return <SkillsPage />;
+      case 'gallery':
+        return <Gallery />;
       case 'resume':
         return <Resume />;
       case 'portfolio':
@@ -37,14 +40,14 @@ function App() {
   };
 
   const getMainStyle = () => {
-    if (currentPage === 'skills' || currentPage === 'resume' || currentPage === 'portfolio' || currentPage === 'services' || currentPage === 'contact') {
+    if (currentPage === 'skills' || currentPage === 'gallery' || currentPage === 'resume' || currentPage === 'portfolio' || currentPage === 'services' || currentPage === 'contact') {
       return { flex: 1, padding: '0', color: '#333' };
     }
     return { flex: 1, padding: '24px', color: '#e6f0ff' };
   };
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: currentPage === 'skills' || currentPage === 'resume' || currentPage === 'portfolio' || currentPage === 'services' || currentPage === 'contact' ? '#ffffff' : '#0e1627' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', background: currentPage === 'skills' || currentPage === 'gallery' || currentPage === 'resume' || currentPage === 'portfolio' || currentPage === 'services' || currentPage === 'contact' ? '#ffffff' : '#0e1627' }}>
       <Drawer onPageChange={handlePageChange} currentPage={currentPage} />
       <main style={getMainStyle()}>
         {renderPage()}

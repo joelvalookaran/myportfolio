@@ -12,10 +12,24 @@ import {
   ListItemText,
   Divider,
 } from '@mui/material';
+import {
+  Twitter,
+  Facebook,
+  Instagram,
+  GitHub,
+  LinkedIn,
+  HomeOutlined,
+  PersonOutline,
+  DescriptionOutlined,
+  MenuBookOutlined,
+  MiscellaneousServicesOutlined,
+  MailOutline,
+  BuildOutlined,
+} from '@mui/icons-material';
 
 const drawerWidth = 280;
 
-function SocialButton({ label }) {
+function SocialButton({ label, icon, onClick }) {
   return (
     <IconButton
       size="small"
@@ -28,10 +42,9 @@ function SocialButton({ label }) {
         '&:hover': { bgcolor: 'rgba(176,196,212,0.15)' },
       }}
       aria-label={label}
+      onClick={onClick}
     >
-      <Typography variant="body2" sx={{ fontWeight: 700 }}>
-        {label}
-      </Typography>
+      {icon}
     </IconButton>
   );
 }
@@ -55,9 +68,7 @@ function NavItem({ active, icon, label, onClick }) {
       }}
     >
       <Box component="span" sx={{ width: 28, display: 'inline-flex', mr: 1.5, opacity: 0.85 }}>
-        <Typography component="span" aria-hidden sx={{ fontSize: 20 }}>
-          {icon}
-        </Typography>
+        {icon}
       </Box>
       <ListItemText primary={label} primaryTypographyProps={{ fontWeight: active ? 600 : 500 }} />
     </ListItemButton>
@@ -66,12 +77,13 @@ function NavItem({ active, icon, label, onClick }) {
 
 export default function Drawer({ onPageChange, currentPage }) {
   const navItems = [
-    { id: 'about', icon: '👤', label: 'About' },
-    { id: 'skills', icon: '🛠️', label: 'Skills' },
-    { id: 'resume', icon: '📄', label: 'Resume' },
-    { id: 'portfolio', icon: '📚', label: 'Portfolio' },
-    { id: 'services', icon: '🔧', label: 'Services' },
-    { id: 'contact', icon: '✉️', label: 'Contact' },
+    { id: 'about', icon: <PersonOutline fontSize="small" />, label: 'About' },
+    { id: 'skills', icon: <BuildOutlined fontSize="small" />, label: 'Skills' },
+    { id: 'gallery', icon: <MenuBookOutlined fontSize="small" />, label: 'Gallery' },
+    { id: 'resume', icon: <DescriptionOutlined fontSize="small" />, label: 'Resume' },
+    { id: 'portfolio', icon: <MenuBookOutlined fontSize="small" />, label: 'Portfolio' },
+    { id: 'services', icon: <MiscellaneousServicesOutlined fontSize="small" />, label: 'Services' },
+    { id: 'contact', icon: <MailOutline fontSize="small" />, label: 'Contact' },
   ];
 
   return (
@@ -106,15 +118,21 @@ export default function Drawer({ onPageChange, currentPage }) {
             />
           </Box>
           <Typography variant="h6" sx={{ fontWeight: 800, color: '#e6f0ff', textAlign: 'center' }}>
-            Kishan Nayak
+           JOEL
           </Typography>
 
           <Stack direction="row" spacing={1.5} sx={{ pt: 1 }}>
-            <SocialButton label="X" />
-            <SocialButton label="f" />
-            <SocialButton label="ig" />
-            <SocialButton label="gh" />
-            <SocialButton label="in" />
+            <SocialButton label="Twitter" icon={<Twitter fontSize="small" />} />
+            <SocialButton label="Facebook" icon={<Facebook fontSize="small" />} />
+            <SocialButton
+              label="Instagram"
+              icon={<Instagram fontSize="small" />}
+              onClick={() =>
+                window.open('https://instagram.com/tap_to_launch', '_blank', 'noopener,noreferrer')
+              }
+            />
+            <SocialButton label="GitHub" icon={<GitHub fontSize="small" />} />
+            <SocialButton label="LinkedIn" icon={<LinkedIn fontSize="small" />} />
           </Stack>
         </Box>
 
@@ -140,7 +158,7 @@ export default function Drawer({ onPageChange, currentPage }) {
           <Typography variant="caption" sx={{ color: '#9fb1c1' }}>
             Designed by{' '}
             <MuiLink href="#" underline="hover" sx={{ color: '#7fb1ff', fontWeight: 600 }}>
-              Kishan Nayak
+             Joel Valookaran
             </MuiLink>
           </Typography>
         </Box>

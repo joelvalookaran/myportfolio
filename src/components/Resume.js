@@ -167,7 +167,7 @@ const Resume = () => {
                     2021 - 2023
                   </Typography>
                   <Typography variant="body1" gutterBottom>
-                    ANUGRAHA PU COLLEGE, UJIRE, IN
+                    ANUGRAHA PU COLLEGE -(COMMERCE-COMPUTER SCIENCE), UJIRE, IN
                   </Typography>
                   <Chip 
                     label="CGPA: 6.5/10" 
@@ -192,21 +192,20 @@ const Resume = () => {
                 
                 <Box sx={{ mb: 3 }}>
                   <Typography variant="h6" component="h3" gutterBottom fontWeight="bold">
-                    SOFTWARE DEVELOPMENT ENGINEER - ANDROID/IOS
+                    SOFTWARE DEVELOPMENT 
                   </Typography>
                   <Typography variant="body2" color="text.secondary" gutterBottom>
-                    2022 - Present
+                   STUDENT
                   </Typography>
                   <Typography variant="body1" gutterBottom>
-                    Nous Infosystems, Bengaluru
+                    DIPLOMA IN COMPUTER SCIENCE & ENGINEERING
                   </Typography>
                   <Box component="ul" sx={{ pl: 2, mt: 1 }}>
                     <Typography component="li" variant="body2" sx={{ mb: 0.5 }}>
-                      Working Mobile Application Developer using Flutter and React Native
+                     3RD YEAR COMPUTER SCIENCE & ENGINEERING
                     </Typography>
                     <Typography component="li" variant="body2" sx={{ mb: 0.5 }}>
-                      Developed Internal Application end to end for Attendance Tracking, Resource Management, Resume Extractor
-                    </Typography>
+                    FULL STACK DEVELOPER IN REACT JS                     </Typography>
                     <Typography component="li" variant="body2" sx={{ mb: 0.5 }}>
                       Developed Medical Product - "Medinous" in-house product
                     </Typography>
@@ -218,20 +217,21 @@ const Resume = () => {
 
                 <Box sx={{ mb: 3 }}>
                   <Typography variant="h6" component="h3" gutterBottom fontWeight="bold">
-                    SOFTWARE DEVELOPMENT ENGINEER
+                    STUDENT 
                   </Typography>
                   <Typography variant="body2" color="text.secondary" gutterBottom>
-                    2021 - 2022
+                    MORE KNOWLEDGE IN IT-SKILLS, CADG, PYTHON
                   </Typography>
                   <Typography variant="body1" gutterBottom>
-                    LogiSian, Bengaluru
+                    SDM POLYTECHNIC UJIRE - 
+                    574240
                   </Typography>
                   <Box component="ul" sx={{ pl: 2, mt: 1 }}>
                     <Typography component="li" variant="body2" sx={{ mb: 0.5 }}>
-                      Worked on https://logisian.in/careers/ the careers site for company using React JS
+                     REACT JS DEVELOPER
                     </Typography>
                     <Typography component="li" variant="body2" sx={{ mb: 0.5 }}>
-                      Worked as Digital Marketer and performed SEO, Ads Management for 2-3 Sites
+                     FULL STACK DEVELOPER IN REACT JS
                     </Typography>
                     <Typography component="li" variant="body2" sx={{ mb: 0.5 }}>
                       Used Firestar library to interact with Firestore, NoSQL database

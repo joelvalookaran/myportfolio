@@ -36,7 +36,7 @@ export default function Aboutus() {
 
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
-                  <InfoRow label="Birthday" value="28 NOV 2004" />
+                  <InfoRow label="Birthday" value="28 NOV 2005" />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <InfoRow label="Age" value="21" />
